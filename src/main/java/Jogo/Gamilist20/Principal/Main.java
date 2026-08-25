@@ -19,40 +19,40 @@ public class Main {
     private BuscarJogos encontrado;
 
     public void menu() {
+
         Scanner scanner = new Scanner(System.in);
-
-
-
-        System.out.println("""
+        boolean loop = true;
+        while (loop) {
+            System.out.println("""
                 1. Procurar jogos
                 2. Jogos favoritos
+                3. Sair
                 """);
-        String desejo = scanner.nextLine();
+            String desejo = scanner.nextLine();
 
-        switch (desejo) {
-            case "1":
-                encontrado.procurarJogo();
-                break;
-
-            case "2":
-                System.out.println("""
+            switch (desejo) {
+                case "1":
+                    encontrado.procurarJogo();
+                    break;
+                case "2":
+                    System.out.println("""
                         1. Adicionar jogo
                         2. Remover jogo
                         3. Listar favoritos
                         """);
-                String desejo2 = scanner.nextLine();
-                switch (desejo2){
-                    case "1":
-                        JogoRawg jogoRawg = encontrado.procurarJogo();
-                        banco.SalvarFavoritos(jogoRawg);
-                        break;
+                    String desejo2 = scanner.nextLine();
+                    switch (desejo2){
+                        case "1":
+                            JogoRawg jogoRawg = encontrado.procurarJogo();
+                            banco.SalvarFavoritos(jogoRawg);
+                            break;
 
+                        case "2":
 
-
-
-                }
-
-
+                    }
+                case "3":
+                    loop = false;
+            }
         }
     }
 }
