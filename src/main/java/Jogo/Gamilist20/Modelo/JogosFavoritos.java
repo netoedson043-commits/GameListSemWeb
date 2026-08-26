@@ -17,6 +17,10 @@ public class JogosFavoritos {
     private String imagem;
 
 
+    public JogosFavoritos() {
+    }
+
+
     public JogosFavoritos(JogoRawg jogoRawg) {
         this.nome = jogoRawg.nome();
         //this.avaliacao = jogoRawg.avaliacao() != null ? jogoRawg.avaliacao() : 0;

@@ -5,13 +5,19 @@ import Jogo.Gamilist20.Modelo.JogosFavoritos;
 import Jogo.Gamilist20.repository.JogosFavoritosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import java.util.List;
+import java.util.Optional;
+import java.util.Scanner;
 
 @Component
 public class BancoDados {
+
+
+
     @Autowired
     private JogosFavoritosRepository repositorio;
 
-    public void SalvarFavoritos(JogoRawg jogoRawg) {
+    public void salvarFavoritos(JogoRawg jogoRawg) {
        if (repositorio.existsByNome(jogoRawg.nome())) {
            System.out.println("Jogo ja esta na lista de favoritos");
        } else {
@@ -20,7 +26,37 @@ public class BancoDados {
            System.out.println("jogo salvo");
 
        }
+    }
+    public void removerFavorito() {
+        Scanner scanner = new Scanner(System.in);
+
+        lsitarFavoritos();
+        System.out.println("qual id do jogo que deseja tirar dos favoritos(ID)");
+        long jogoRemove = scanner.nextLong();
+
+        Optional<JogosFavoritos> jogo = repositorio.findById(jogoRemove);
+        if (jogo.isEmpty()) {
+            System.out.println("Id invalido ou nao esta nos favoritos");
+        } else {
+            repositorio.delete(jogo.get());
+            System.out.println("removido com sucesso");
+        }
 
 
+
+
+    }
+
+    public void lsitarFavoritos() {
+        List<JogosFavoritos> favoritos = repositorio.findAll();
+
+        if (favoritos.isEmpty()) {
+            System.out.println("nenhum jogo nos favoritos");
+        } else {
+            for (JogosFavoritos favorito : favoritos) {
+                System.out.println(favorito.getId() + " - " + favorito.getNome());
+
+            }
+        }
     }
 }
