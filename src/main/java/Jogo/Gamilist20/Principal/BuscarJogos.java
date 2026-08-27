@@ -1,7 +1,7 @@
 package Jogo.Gamilist20.Principal;
 
 import Jogo.Gamilist20.Modelo.JogoRawg;
-import Jogo.Gamilist20.Servicos.Entrada;
+import Jogo.Gamilist20.Api.RawgApiClientHttp;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,7 +19,7 @@ public class BuscarJogos {
 
     public JogoRawg procurarJogo() {
         Scanner scanner = new Scanner(System.in);
-        Entrada jogoProcurado = new Entrada();
+        RawgApiClientHttp jogoProcurado = new RawgApiClientHttp();
 
         System.out.println("nome do jogo");
         String buscarJogo = scanner.nextLine();

@@ -1,4 +1,4 @@
-package Jogo.Gamilist20.Servicos;
+package Jogo.Gamilist20.Api;
 
 import java.io.IOException;
 import java.net.URI;
@@ -6,7 +6,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class Entrada {
+public class RawgApiClientHttp {
     public String obterDados(String endereco) {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
