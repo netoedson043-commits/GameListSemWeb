@@ -1,6 +1,6 @@
 package Jogo.Gamilist20.Principal;
 
-import Jogo.Gamilist20.Menus.Menus;
+import Jogo.Gamilist20.Servicos.Menus.Menus;
 import Jogo.Gamilist20.Modelo.JogoRawg;
 import Jogo.Gamilist20.Servicos.BancoDados;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,21 +27,33 @@ public class Main {
                     encontrado.procurarJogo();
                     break;
                 case "2":
-                    menus.MenuSecundario();
-                    String desejo2 = scanner.nextLine();
-                    switch (desejo2){
-                        case "1":
-                            JogoRawg jogoRawg = encontrado.procurarJogo();
-                            banco.salvarFavoritos(jogoRawg);
-                            break;
+                    boolean loopSecundario = true;
+                    while (loopSecundario) {
+                        menus.MenuSecundario();
+                        String desejo2 = scanner.nextLine();
+                        switch (desejo2){
+                            case "1":
+                                JogoRawg jogoRawg = encontrado.procurarJogo();
+                                banco.salvarFavoritos(jogoRawg);
+                                break;
 
-                        case "2":
-                            banco.removerFavorito();
-                        case "3":
-                            banco.lsitarFavoritos();
+                            case "2":
+                                banco.removerFavorito();
+                                break;
+                            case "3":
+                                banco.lsitarFavoritos();
+                                break;
+
+                            case "4":
+                                System.out.println("voltando");
+                                loopSecundario = false;
+                                break;
                     }
+                    }
+                    break;
                 case "3":
                     loop = false;
+                    break;
 
             }
         }

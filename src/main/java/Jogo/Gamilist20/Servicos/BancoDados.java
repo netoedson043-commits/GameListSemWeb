@@ -30,7 +30,12 @@ public class BancoDados {
     public void removerFavorito() {
         Scanner scanner = new Scanner(System.in);
 
-        lsitarFavoritos();
+        boolean temFavorito = lsitarFavoritos();
+        if (!temFavorito) {
+            return;
+        }
+
+
         System.out.println("qual id do jogo que deseja tirar dos favoritos(ID)");
         long jogoRemove = scanner.nextLong();
 
@@ -47,16 +52,17 @@ public class BancoDados {
 
     }
 
-    public void lsitarFavoritos() {
+    public boolean lsitarFavoritos() {
         List<JogosFavoritos> favoritos = repositorio.findAll();
 
         if (favoritos.isEmpty()) {
             System.out.println("nenhum jogo nos favoritos");
+            return false;
         } else {
             for (JogosFavoritos favorito : favoritos) {
                 System.out.println(favorito.getId() + " - " + favorito.getNome());
-
             }
+            return true;
         }
     }
 }

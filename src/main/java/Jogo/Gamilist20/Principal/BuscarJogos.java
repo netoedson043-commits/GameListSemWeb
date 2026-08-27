@@ -8,6 +8,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 @Component
 public class BuscarJogos {
@@ -21,8 +23,9 @@ public class BuscarJogos {
 
         System.out.println("nome do jogo");
         String buscarJogo = scanner.nextLine();
+        String buscarTransformada = URLEncoder.encode(buscarJogo, StandardCharsets.UTF_8);
 
-        String endereco = "https://api.rawg.io/api/games?key=" + apiKey +"&search=" + buscarJogo;
+        String endereco = "https://api.rawg.io/api/games?key=" + apiKey +"&search=" + buscarTransformada;
 
 
         var resultado = jogoProcurado.obterDados(endereco);
