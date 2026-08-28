@@ -1,7 +1,8 @@
 package Jogo.Gamilist20.Principal;
 
+import Jogo.Gamilist20.Principal.BuscarApi.BuscarJogos;
 import Jogo.Gamilist20.Servicos.Menus.Menus;
-import Jogo.Gamilist20.Modelo.JogoRawg;
+import Jogo.Gamilist20.Modelo.JsonAlias.JogoRawg;
 import Jogo.Gamilist20.Servicos.BancoDados;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -1,19 +1,26 @@
 package Jogo.Gamilist20.Modelo;
 
+import Jogo.Gamilist20.Modelo.Desenvolvedor.JogoRawgDesenvolvedor;
+import Jogo.Gamilist20.Modelo.JsonAlias.JogoRawg;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "jogosFavoritos")
 public class JogosFavoritos {
+    @Transient
+    JogoRawgDesenvolvedor jogoRawgDesenvolvedor = new JogoRawgDesenvolvedor();
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     private String nome;
-    private Integer avaliacao;
+
+    @ManyToOne
+    @JoinColumn(name = "desenvolvedorId")
+    private DesenvolvedoraRawg desenvolvedor;
+
     private Integer avaliacaoRawg;
     private String ano;
-    private String genero;
     private String imagem;
 
 
@@ -23,7 +30,8 @@ public class JogosFavoritos {
 
     public JogosFavoritos(JogoRawg jogoRawg) {
         this.nome = jogoRawg.nome();
-        //this.avaliacao = jogoRawg.avaliacao() != null ? jogoRawg.avaliacao() : 0;
+        String nomedesenvolvedor = jogoRawgDesenvolvedor.filtrarNome(jogoRawg);
+        this.desenvolvedor = new DesenvolvedoraRawg(nomedesenvolvedor);
         this.avaliacaoRawg = jogoRawg.avaliacaoRawg() != null ? jogoRawg.avaliacaoRawg() : 0;
         this.ano = jogoRawg.ano();
         this.imagem = jogoRawg.imagem();
@@ -43,14 +51,6 @@ public class JogosFavoritos {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Integer getAvaliacao() {
-        return avaliacao;
-    }
-
-    public void setAvaliacao(Integer avaliacao) {
-        this.avaliacao = avaliacao;
     }
 
     public String getAno() {
@@ -77,12 +77,19 @@ public class JogosFavoritos {
         this.imagem = imagem;
     }
 
-    public String getGenero() {
-        return genero;
+    public DesenvolvedoraRawg getDesenvolvedor() {
+        return desenvolvedor;
     }
 
-    public void setGenero(String genero) {
-        this.genero = genero;
+    public void setDesenvolvedor(DesenvolvedoraRawg desenvolvedor) {
+        this.desenvolvedor = desenvolvedor;
     }
 
+    public JogoRawgDesenvolvedor getJogoRawgDesenvolvedor() {
+        return jogoRawgDesenvolvedor;
+    }
+
+    public void setJogoRawgDesenvolvedor(JogoRawgDesenvolvedor jogoRawgDesenvolvedor) {
+        this.jogoRawgDesenvolvedor = jogoRawgDesenvolvedor;
+    }
 }

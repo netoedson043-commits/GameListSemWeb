@@ -1,6 +1,5 @@
-package Jogo.Gamilist20.Modelo;
+package Jogo.Gamilist20.Modelo.JsonAlias;
 
-import Jogo.Gamilist20.Modelo.Desenvolvedor.DeveloperInfo;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

@@ -1,6 +1,7 @@
 package Jogo.Gamilist20.Modelo.Desenvolvedor;
 
-import Jogo.Gamilist20.Modelo.JogoRawg;
+import Jogo.Gamilist20.Modelo.JsonAlias.DeveloperInfo;
+import Jogo.Gamilist20.Modelo.JsonAlias.JogoRawg;
 
 import java.util.stream.Collectors;
 
@@ -9,8 +10,6 @@ public class JogoRawgDesenvolvedor {
         if (jogoRawg.desenvolvedora() == null | jogoRawg.desenvolvedora().isEmpty()) {
             return "Nao existe desenvolvedor";
         }
-        return jogoRawg.desenvolvedora().stream()
-                .map(DeveloperInfo::name)
-                .collect(Collectors.joining(", "));
+        return jogoRawg.desenvolvedora().get(0).name();
     }
 }

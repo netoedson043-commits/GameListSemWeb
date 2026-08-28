@@ -1,7 +1,7 @@
-package Jogo.Gamilist20.Principal;
+package Jogo.Gamilist20.Principal.BuscarApi;
 
 import Jogo.Gamilist20.Api.RawgApiClientHttp;
-import Jogo.Gamilist20.Modelo.JogoRawg;
+import Jogo.Gamilist20.Modelo.JsonAlias.JogoRawg;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
