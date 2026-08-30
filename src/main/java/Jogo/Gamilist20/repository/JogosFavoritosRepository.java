@@ -8,6 +8,7 @@ import java.util.List;
 public interface JogosFavoritosRepository extends JpaRepository<JogosFavoritos, Long> {
     boolean existsByNome(String nome);
 
+    List<JogosFavoritos> findByDesenvolvedor_Id(long id);
 
-    //List<JogosFavoritos> findAll();
+
 }

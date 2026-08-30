@@ -1,15 +1,16 @@
 package Jogo.Gamilist20.Servicos.Menus;
 
 public class Menus {
-    public void MenuPrincipal() {
+    public void menuPrincipal() {
         System.out.println("""
                 \n
                 1. Procurar jogos
                 2. Jogos favoritos
-                3. Sair
+                3. Desenvolvedoras 
+                4. Sair
                 """);
     }
-    public void MenuSecundario() {
+    public void menuJogosFavoritos() {
         System.out.println("""
                         \n
                         1. Adicionar jogo
@@ -18,5 +19,12 @@ public class Menus {
                         4. Voltar ao menu principal
                         """);
 
+    }
+    public void menuDesenvolvedor() {
+        System.out.println("""
+                1. Lista de desenvolvedores
+                2. Remover Desenvolvedor
+                3. Voltar ao menu principal
+                """);
     }
 }

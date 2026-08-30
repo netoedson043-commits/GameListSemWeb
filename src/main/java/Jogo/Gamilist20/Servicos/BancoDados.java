@@ -18,10 +18,10 @@ public class BancoDados {
 
 
     @Autowired
-    private JogosFavoritosRepository repositorio;
+    private JogosFavoritosRepository jogosRepositorio;
 
     public void salvarFavoritos(JogoRawg jogoRawg) {
-       if (repositorio.existsByNome(jogoRawg.nome())) {
+       if (jogosRepositorio.existsByNome(jogoRawg.nome())) {
            System.out.println("Jogo ja esta na lista de favoritos");
        } else {
            JogosFavoritos favoritos = new JogosFavoritos(jogoRawg);
@@ -30,7 +30,7 @@ public class BancoDados {
            favoritos.setDesenvolvedor(dev);
 
 
-           repositorio.save(favoritos);
+           jogosRepositorio.save(favoritos);
            System.out.println("jogo salvo");
 
        }
@@ -38,7 +38,7 @@ public class BancoDados {
     public void removerFavorito() {
         Scanner scanner = new Scanner(System.in);
 
-        boolean temFavorito = lsitarFavoritos();
+        boolean temFavorito = listaFavoritos();
         if (!temFavorito) {
             return;
         }
@@ -47,11 +47,11 @@ public class BancoDados {
         System.out.println("qual id do jogo que deseja tirar dos favoritos(ID)");
         long jogoRemove = scanner.nextLong();
 
-        Optional<JogosFavoritos> jogo = repositorio.findById(jogoRemove);
+        Optional<JogosFavoritos> jogo = jogosRepositorio.findById(jogoRemove);
         if (jogo.isEmpty()) {
             System.out.println("Id invalido ou nao esta nos favoritos");
         } else {
-            repositorio.delete(jogo.get());
+            jogosRepositorio.delete(jogo.get());
             System.out.println("removido com sucesso");
         }
 
@@ -60,13 +60,14 @@ public class BancoDados {
 
     }
 
-    public boolean lsitarFavoritos() {
-        List<JogosFavoritos> favoritos = repositorio.findAll();
+    public boolean listaFavoritos() {
+        List<JogosFavoritos> favoritos = jogosRepositorio.findAll();
 
         if (favoritos.isEmpty()) {
             System.out.println("nenhum jogo nos favoritos");
             return false;
         } else {
+            System.out.println("Lista de jogos Favoritos");
             for (JogosFavoritos favorito : favoritos) {
                 System.out.println(favorito.getId() + " - " + favorito.getNome());
             }
