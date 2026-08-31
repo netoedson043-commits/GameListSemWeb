@@ -1,6 +1,6 @@
 package Jogo.Gamilist20.Servicos;
 
-import Jogo.Gamilist20.Modelo.DesenvolvedoraRawg;
+import Jogo.Gamilist20.Modelo.Desenvolvedora;
 import Jogo.Gamilist20.Modelo.JsonAlias.JogoRawg;
 import Jogo.Gamilist20.Modelo.JogosFavoritos;
 import Jogo.Gamilist20.repository.JogosFavoritosRepository;
@@ -26,7 +26,7 @@ public class BancoDados {
        } else {
            JogosFavoritos favoritos = new JogosFavoritos(jogoRawg);
 
-           DesenvolvedoraRawg dev = bancodadosDev.buscarOuCriarDev(favoritos.getDesenvolvedor());
+           Desenvolvedora dev = bancodadosDev.buscarOuCriarDev(favoritos.getDesenvolvedor());
            favoritos.setDesenvolvedor(dev);
 
 

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "desenvolvedor")
-public class DesenvolvedoraRawg {
+public class Desenvolvedora {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,10 +16,10 @@ public class DesenvolvedoraRawg {
     @OneToMany(mappedBy = "desenvolvedor")
     private List<JogosFavoritos> jogos = new ArrayList<>();
 
-    public DesenvolvedoraRawg() {
+    public Desenvolvedora() {
     }
 
-    public DesenvolvedoraRawg(String nome) {
+    public Desenvolvedora(String nome) {
         this.nome = nome;
     }
 

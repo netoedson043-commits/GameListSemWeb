@@ -17,7 +17,7 @@ public class JogosFavoritos {
 
     @ManyToOne
     @JoinColumn(name = "desenvolvedorId")
-    private DesenvolvedoraRawg desenvolvedor;
+    private Desenvolvedora desenvolvedor;
 
     private Integer avaliacaoRawg;
     private String ano;
@@ -31,7 +31,7 @@ public class JogosFavoritos {
     public JogosFavoritos(JogoRawg jogoRawg) {
         this.nome = jogoRawg.nome();
         String nomedesenvolvedor = jogoRawgDesenvolvedor.filtrarNome(jogoRawg);
-        this.desenvolvedor = new DesenvolvedoraRawg(nomedesenvolvedor);
+        this.desenvolvedor = new Desenvolvedora(nomedesenvolvedor);
         this.avaliacaoRawg = jogoRawg.avaliacaoRawg() != null ? jogoRawg.avaliacaoRawg() : 0;
         this.ano = jogoRawg.ano();
         this.imagem = jogoRawg.imagem();
@@ -77,11 +77,11 @@ public class JogosFavoritos {
         this.imagem = imagem;
     }
 
-    public DesenvolvedoraRawg getDesenvolvedor() {
+    public Desenvolvedora getDesenvolvedor() {
         return desenvolvedor;
     }
 
-    public void setDesenvolvedor(DesenvolvedoraRawg desenvolvedor) {
+    public void setDesenvolvedor(Desenvolvedora desenvolvedor) {
         this.desenvolvedor = desenvolvedor;
     }
 

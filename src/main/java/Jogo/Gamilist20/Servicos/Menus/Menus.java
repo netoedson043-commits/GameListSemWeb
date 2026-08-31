@@ -22,9 +22,11 @@ public class Menus {
     }
     public void menuDesenvolvedor() {
         System.out.println("""
+                \n
                 1. Lista de desenvolvedores
                 2. Remover Desenvolvedor
-                3. Voltar ao menu principal
+                3. Todos jogos dessa desenvolvedora
+                4. Voltar ao menu principal
                 """);
     }
 }

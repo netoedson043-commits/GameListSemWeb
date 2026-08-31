@@ -57,23 +57,30 @@ public class Main {
                     }
                     break;
                 case "3":
-                    menus.menuDesenvolvedor();
-                    String desejo3 = scanner.nextLine();
-                    switch (desejo3) {
-                        case "1":
-                            bancoDev.listarDesenvolvedoras();
-                            break;
-                        case "2":
-                            bancoDev.removerDesenvolvedora();
-                            break;
-
+                    boolean loopTerciario = true;
+                    while (loopTerciario) {
+                        menus.menuDesenvolvedor();
+                        String desejo3 = scanner.nextLine();
+                        switch (desejo3) {
+                            case "1":
+                                bancoDev.listarDesenvolvedoras();
+                                break;
+                            case "2":
+                                bancoDev.removerDesenvolvedora();
+                                break;
+                            case "3":
+                                bancoDev.listarPorDesenvolvedora();
+                                break;
+                            case "4":
+                                loopTerciario = false;
+                                break;
+                    }
                     }
                     break;
 
                 case "4":
                     loop = false;
                     break;
-
             }
         }
     }
