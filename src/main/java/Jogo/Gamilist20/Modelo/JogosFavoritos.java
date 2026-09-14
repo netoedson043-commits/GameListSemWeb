@@ -23,6 +23,9 @@ public class JogosFavoritos {
     private String ano;
     private String imagem;
 
+    @Enumerated(EnumType.STRING)
+    private StatusJogo statusJogo;
+
 
     public JogosFavoritos() {
     }
@@ -37,6 +40,7 @@ public class JogosFavoritos {
         this.imagem = jogoRawg.imagem();
 
     }
+
 
     public long getId() {
         return id;
@@ -91,5 +95,13 @@ public class JogosFavoritos {
 
     public void setJogoRawgDesenvolvedor(JogoRawgDesenvolvedor jogoRawgDesenvolvedor) {
         this.jogoRawgDesenvolvedor = jogoRawgDesenvolvedor;
+    }
+
+    public StatusJogo getStatusJogo() {
+        return statusJogo;
+    }
+
+    public void setStatusJogo(StatusJogo statusJogo) {
+        this.statusJogo = statusJogo;
     }
 }

@@ -50,8 +50,15 @@ public class Main {
                                 break;
 
                             case "4":
+                                banco.redefinirStatus();
+                                break;
+
+                            case "5":
                                 System.out.println("voltando");
                                 loopSecundario = false;
+                                break;
+                            default:
+                                System.out.println("Opacao invalida");
                                 break;
                     }
                     }
@@ -74,12 +81,18 @@ public class Main {
                             case "4":
                                 loopTerciario = false;
                                 break;
+                            default:
+                                System.out.println("Opacao invalida");
+                                break;
                     }
                     }
                     break;
 
                 case "4":
                     loop = false;
+                    break;
+                default:
+                    System.out.println("Opacao invalida");
                     break;
             }
         }

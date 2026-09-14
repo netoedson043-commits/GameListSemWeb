@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class JogoRawgDesenvolvedor {
     public String filtrarNome(JogoRawg jogoRawg) {
-        if (jogoRawg.desenvolvedora() == null | jogoRawg.desenvolvedora().isEmpty()) {
+        if (jogoRawg.desenvolvedora() == null || jogoRawg.desenvolvedora().isEmpty()) {
             return "Nao existe desenvolvedor";
         }
         return jogoRawg.desenvolvedora().get(0).name();

@@ -16,7 +16,8 @@ public class Menus {
                         1. Adicionar jogo
                         2. Remover jogo
                         3. Listar favoritos
-                        4. Voltar ao menu principal
+                        4. Redefinir status
+                        5. Voltar ao menu principal
                         """);
 
     }
@@ -27,6 +28,16 @@ public class Menus {
                 2. Remover Desenvolvedor
                 3. Todos jogos dessa desenvolvedora
                 4. Voltar ao menu principal
+                """);
+    }
+
+    public void menuStatus() {
+        System.out.println("""
+                \n
+                Status do jogo:
+                1. Vou jogar
+                2. Jogando
+                3. Concluido
                 """);
     }
 }
